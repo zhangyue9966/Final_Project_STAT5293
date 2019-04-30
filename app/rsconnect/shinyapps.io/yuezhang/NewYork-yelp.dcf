@@ -1,0 +1,12 @@
+name: NewYork-yelp
+title: NewYork-yelp
+username:
+account: yuezhang
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 900378
+bundleId: 2050099
+url: https://yuezhang.shinyapps.io/NewYork-yelp/
+when: 1556638649.60052
+asMultiple: FALSE
+asStatic: FALSE
