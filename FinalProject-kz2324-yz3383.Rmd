@@ -58,7 +58,9 @@ library(shiny)
 
 ## I. Introduction
 
+Explain why you chose this topic, and the questions you are interested in studying. Provide context for readers who are not familiar with the topic.
 
+In this project, we explore the relationship of several variables from Yelp API including price, cuisine, rating, number of reviews and coordinates. We also joined the dataset with borough information for further exploration. 
 
 ## II. About the data source
 
@@ -153,7 +155,7 @@ all_data <-
 
 ## IV Analysis of missing values
 
-All the records are independent and most of the data are categorical. Moreover, the missing value is not extensive compared with the whole dataset. Thus, it is not meaningful to use methods like listwise, pairwise or regression to fill up missing valu. In this project, records contaning missing value are deleted directly.
+All the records are independent and most of the data are categorical. Moreover, the missing value is not extensive compared with the whole dataset. Thus, it is not meaningful to use methods like listwise, pairwise or regression to fill up missing value. In this project, records contaning missing value are deleted directly.
 
 While matching df with the neighbourhood, many unmatched records occured. For dataset all_data, there're 8478 rows and amony them 1010 rows contain missing values. Compared to the total amout of data, we decide to remove these missing data later while ploting.
 
@@ -279,7 +281,7 @@ Interested in 5 star resaurants only? No problem at all. The plot below is the d
 
 ![](pictures/plot5.jpg)
 
-But for some cuisines, this is not case for some cuisine like Greek and Spanish. Most of the Greek restaurants with 5 star rating are located in Queens instead of Manhanttan. Janpaness food, however, are located in Brooklyn. From the Price vs Borough we can also find that the price of Japaness restaurant in Brooklyn is not as high as the price in Manhanttan. So we can assume that the price is also an important part which affect the rating.
+But for some cuisines, this is not case for some cuisine like Greek and Spanish. Most of the Greek restaurants with 5 star rating are located in Queens instead of Manhanttan. Most 5 start Janpaness restaurants, however, are located in Brooklyn. From the Price vs Borough tab on app.R we can also find that the price of Japaness restaurant in Brooklyn is not as high as the price in Manhanttan which might bring more customers to them. So we can assume that the price is also an important part which affect the rating
 
 ![](pictures/plot6.jpg)
 
@@ -290,4 +292,10 @@ Our R shiny app works fine locally, but somehow when we tried to publish it caus
 
 ## VII Conclusion
 
-Due to the limit of our access to the data from Yelp, most of our data are discrete variables, which also limit our ways to explore the data.
+In this project, we performs explorative data analysis on data generated from Yelp API. We explored the relationship among borough, rating, cuisine, price and number of reviews.
+
+#### Way to improve
+
+Due to our limited access to the Yelp data, most of our variables are discrete and restrict our ways to explore the data. In this project, most of our plots are barcharts or mosaic plots as we have many discrete variables. 
+If we still have time we will seek more information and get more continuous data like date in order to analyze the change of customers preference with different generation. We are also interested in learning the reviews on Yelp, using wordcloud and n-gram clustering we can find more components which affect the rating of the restaurants.
+
