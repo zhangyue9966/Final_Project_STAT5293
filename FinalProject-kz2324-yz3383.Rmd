@@ -68,7 +68,7 @@ Because of the maximum limit of Yelp API, the data was scraped twice accroding t
 
 For the purpose that the scrapping results would be more uniform distributed, this project choose five western cuisines and five eastern cuisines that people may be more interested in. In the first file "business_data_western.csv", there are five western cuisines: '`italian`', '`spanish`', '`greek`','`french`', '`mexican`'. In the second file "business_data_eastern.csv", there are five eastern cuisines: '`chinese`', '`korean`', '`japanese`', '`indian`', '`thai`'. There are total 8814 records.  
 
-Here is the [link](https://github.com/zhangyue9966/Final_Project_STAT5293/blob/master/scrape_yelp/scrape_yelp_western.py) of the Python code for getting western restaurants information.
+Here is the [Python code](https://github.com/zhangyue9966/Final_Project_STAT5293/blob/master/scrape_yelp/scrape_yelp_western.py)  for getting western restaurants information.
 
 ## III. Data cleaning
 
@@ -273,7 +273,7 @@ From the app we can see that although this result depends on crusine and vary fr
 
 ![](pictures/plot4.jpg)
 
-## 3. Is the number of reviews matters?
+### 3. Is the number of reviews matters?
 
 Interested in 5 star resaurants only? No problem at all. The plot below is the distribution of number of reviews we would expect for all cuisine. 
 
