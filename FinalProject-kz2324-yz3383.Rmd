@@ -256,9 +256,9 @@ The first interactive part is an interactive map which show the distribution of 
 
 Unsurprisingly, some cuisine like Chinese restaurants with ratings 4 are located near the China Town area in Mahanttan. However, Itanlian food does not have this trend. From the screenshot below we can see that it's more evenly distributed in Manhattan and do not have specific prefenerce in locations. 
 
-![](pictures/plot_map.jpg)
+![](pictures/plot1.jpg)
 
-![](pictures/plot_map1.jpg)
+![](pictures/plot2.jpg)
 
 ### Will the relationship of price and borough change a lot given differnt cuisine and rating?
 
@@ -273,13 +273,14 @@ From the app we can see that although this result depends on crusine and vary fr
 
 Interested in 5 star resaurants only? No problem at all. The plot below is the distribution of number of reviews we would expect for all cuisine. 
 
-![](pictures/plot13.jpg)
+![](pictures/plot5.jpg)
 
 But for some cuisines, this is not case for some cuisine like Greek and Spanish. Most of the Greek restaurants with 5 star rating are located in Queens instead of Manhanttan. Janpaness food, however, are located in Brooklyn. From the Price vs Borough we can also find that the price of Japaness restaurant in Brooklyn is not as high as the price in Manhanttan. So we can assume that the price is also an important part which affect the rating.
 
-![](pictures/plot11.jpg)
+![](pictures/plot6.jpg)
 
 All data and code documents can be found [here](https://github.com/zhangyue9966/Final_Project_STAT5293). 
+
 Our R shiny app works fine locally, but somehow when we tried to publish it caused problems. We just can't figure out how to solve it. We talked to the professor about this problem and she said it's fine as long as our app can work. Our R shiny app is located at the app.R folder on the GiHub above.
 
 
