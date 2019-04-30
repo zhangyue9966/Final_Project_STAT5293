@@ -166,6 +166,7 @@ While matching df with the neighbourhood, many unmatched records occured. For da
 ## V Results
 
 ### What can affect the rating?
+
 Firstly, let's get some insights by looking at the distribution of rating.   
 
 ```{r, fig.height = 4, fig.width = 6}
@@ -187,6 +188,7 @@ ggplot(df0, aes(x = rating, y = norows, fill = aboveavg)) +
 The mean of rating is 3.79. Thus, it would be reasonable to consider the restaurants with rating queals to or higher than 4 to be "good" restaurants. They are represented by the red bars in the bar chart. The blue bars represent "bad" restaurants. The distribution of ratings is right-skewed. People tends to give a neutral score, and a few people would give ratings lower than 3.   
 
 ### 1. Rating & Price 
+
 The second-level price takes the largest proportion. It also owns the most centralized rating. Overall, The rating present the postive relationship with price. Especially in the higheset-price restaurants, the rating distribution is obviously different with the other levels. There are almost 80% restaurants whose rating are 4 or higher than 4.     
 Howerver, outliers exist. In the cheapest restaurants, rating of 4.5 and 5 owns a high proportion. This is reasonable that we must have experienced surprise that some cheap food have the taste which are out of expection. People would give their highese commendation in such situation.
 
@@ -204,6 +206,7 @@ ggplot(df) +
 For further explory, it could be helpfule to add cuisine as a feature. 
 
 ### 2. Cuisine & Rating  
+
 Beauser there are nine levels, it would be confusing to using sequential color, instead we used diverging color to show the pattern. What's more, it's better to compare when using `coord_polar` to convert parallel bars into pie chart. The color closer to blue, the higher the rating. The area represents the count.    
 It is very clear that italian and korean cusine has the relatively larger proportion of high rating. At the meantime, italian restaurants has the largest amount. Also, there's no distinct difference between western and eastern cuisines.
 
@@ -220,6 +223,7 @@ ggplot(df,aes(cuisine)) +
 
 
 ### 3. Cuisine & Price
+
 Because of less levels, it would be better to use sequential palettes to show the distribution. Darker color represent the higher price. Appreantly, Chinese restaurants has the relatively lowest price while italian restaurants has the highest. While Chinese restaurants do not own the lowest rating, thus, there's no direct relationship between price and rating. This result is consistent with the conclution we drawed before when compared Rating & Price.
 
 ```{r, fig.height = 4, fig.width = 6}
@@ -250,7 +254,7 @@ ggplot(df, aes(x=rating, y=review_count, group=rating)) +
 
 While analyzing data, we found it hard to compare more than 3 elements. So we built R shiny app which contains 3 interavtive parts.
 
-### Is the distribution of restaurant in different cuisine related to borough?
+### 1. Is the distribution of restaurant in different cuisine related to borough?
 
 The first interactive part is an interactive map which show the distribution of the location of restaurants given cuisine and rating value. We can explore the distribution change of these restaurants when the cuisine or rating changes. For example, for the most of restaurants in every cuisine, the higher rating is, the closer restaurants are to midtown. This shows that midtown in Manhattan is a great place to dine in if you prefer high rating. 
 
@@ -260,7 +264,7 @@ Unsurprisingly, some cuisine like Chinese restaurants with ratings 4 are located
 
 ![](pictures/plot2.jpg)
 
-### Will the relationship of price and borough change a lot given differnt cuisine and rating?
+### 2. Will the relationship of price and borough change a lot given differnt cuisine and rating?
 
 Interactive plot give us an opportunity to explore more than 3 elements at the same time. From common sense, we will consider price highly related to borough as the rent for restaurants in Manhanttan will definitely be higher than that in others boroughs. But is this really the case? And what about other boroughs?
 From the app we can see that although this result depends on crusine and vary from case to case, for most cuisines the price in Manhattan has more different price level. Especially for Chinese food. 
@@ -269,7 +273,7 @@ From the app we can see that although this result depends on crusine and vary fr
 
 ![](pictures/plot4.jpg)
 
-## Is the number of reviews matters?
+## 3. Is the number of reviews matters?
 
 Interested in 5 star resaurants only? No problem at all. The plot below is the distribution of number of reviews we would expect for all cuisine. 
 
