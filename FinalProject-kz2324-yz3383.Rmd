@@ -1,13 +1,39 @@
 ---
 title: "FinalProject"
 output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+  html_document: default
 ---
+<style type="text/css">
+
+body{ /* Normal  */
+      font-size: 14px;
+  }
+td {  /* Table  */
+  font-size: 12px;
+}
+h1.title {
+  font-size: 38px;
+}
+h1 { /* Header 1 */
+  font-size: 28px;
+}
+h2 { /* Header 2 */
+    font-size: 22px;
+}
+h3 { /* Header 3 */
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+}
+code.r{ /* Code block */
+    font-size: 16px;
+}
+pre { /* Code block - determines code spacing between lines */
+    font-size: 14px;
+}
+</style>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,warning=FALSE,message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE, fig.align='center')
 
 list.of.packages <- c("ggridges", "tidyverse","dplyr","tidyr",
                       "ggplot2","ggmosaic","productplots","RColorBrewer",
@@ -25,8 +51,6 @@ library(ggmosaic)
 library(productplots)
 library(RColorBrewer)
 library(httr)
-library(tigris)
-library(leaflet)
 library(rgdal)
 library(shiny)
 ```
@@ -48,12 +72,18 @@ Here is the link[https://github.com/zhangyue9966/Final_Project_STAT5293/blob/mas
 ## III. Data cleaning
 
 The original data's dimension is 8814*18. Our steps for data cleaning is shown as below:  
-1. Choosed features that would be useful for further analysis: `coordinates`, `cuisine`, `cuisine_type`, `id`, `name`, `price`, `rating`, `review_count`.   
-2. For missing value, it is only necessary to delete the records containing missing value in the features that we interested. Thus, we deleted records with missing value in `price`, `coordinates`, `rating` and `review_count`. There are total such 351 records.   
-3. For error values, as there are only two records containing error(false dollar sign), we directly deleted them.
-4. Last step is to format data. Firstly, '`price`' is factorred and its levels are resetted. Secondly, as we might need '`latitude`' and '`longitude`' in further analysis, we extracted them from '`coordinates`' and created new columns for them, then delete the original '`coordinates`' column.
 
-|Cuisine | Number |
+1. Choosed features that would be useful for further analysis: `coordinates`, `cuisine`, `cuisine_type`, `id`, `name`, `price`, `rating`, `review_count`.
+
+2. For missing value, it is only necessary to delete the records containing missing value in the features that we interested. Thus, we deleted records with missing value in `price`, `coordinates`, `rating` and `review_count`. There are total such 351 records.
+
+3. For error values, as there are only two records containing error(false dollar sign), we directly deleted them.
+
+4. Last step is to format data. Firstly, '`price`' is factorred and its levels are resetted. Secondly, as we need '`latitude`' and '`longitude`' to join the dataset with the borough infromation. Thus, we extracted them from '`coordinates`' and created new columns for them, then delete the original '`coordinates`' column. 
+
+Finally, the dataset contains variavles: `latitude`, `longitude`, `name`, `cuisine`, `price`, `rating`, `review_count`, `neighborhood`, `borough`. The counts of each cuisine are shown in the table below.
+
+|Cuisine | Count |
 |-------:|-----:|
 |French	|550|			
 |Greek	|824|			
@@ -76,7 +106,7 @@ e_data = read.csv("business_data_eastern.csv")
 e_data = e_data %>% mutate(cuisine_type = "eastern")
 
 raw_data = rbind(w_data, e_data)
-colnames(raw_data)
+# colnames(raw_data)
 
 df = raw_data %>% 
   select(coordinates,cuisine, cuisine_type, id, name, price, rating, review_count) %>%  
@@ -97,10 +127,8 @@ num_cuisine = df %>%
   group_by(cuisine) %>%
   summarise(norows = length(cuisine))
 
-num_cuisine
 ```
 
-Besides the data we get directly from Yelp, we also want to explore the relationship of differnt crusine and the boroughs they belong to. Because Yelp does not prodive the details, we used the latitude and longitude information to join our dataset with the borough infromation. As the result we have the all_data with the following vairables.
 
 ```{r message=FALSE, warning=FALSE}
 # Join neighbourhood with my data
@@ -119,7 +147,7 @@ all_data <-
 
 # write.csv(all_data, file = "all_data.csv")
 
-colnames(all_data)
+# colnames(all_data)
 ```
 
 ## IV Analysis of missing values
@@ -129,10 +157,9 @@ All the records are independent and most of the data are categorical. Moreover, 
 While matching df with the neighbourhood, many unmatched records occured. For dataset all_data, there're 8478 rows and amony them 1010 rows contain missing values. Compared to the total amout of data, we decide to remove these missing data later while ploting.
 
 ```{r}
-nrow(all_data)
-sum(is.na(all_data$borough))
-sum(is.na(all_data$neighborhood))
-
+# nrow(all_data)
+# sum(is.na(all_data$borough))
+# sum(is.na(all_data$neighborhood))
 ```
 
 ## V Results
@@ -202,7 +229,7 @@ ggplot(df,aes(cuisine)) +
 
 ```
 
-## 4. Rating & Review Count  
+### 4. Rating & Review Count  
 
 The box plot clearly show that how much outliers could be of review count. The mean of review count is 270, the median of review count is 153, while the largest review count could be close to 6000. This exposured the high bias in this market. The most focus are on a few popular restaurants. Interestingly, people tends to give review for those low-rate restaurants than high-rate restaurants. People may cannot help expressing anger than happiness.
 
