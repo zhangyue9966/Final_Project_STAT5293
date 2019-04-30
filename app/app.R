@@ -14,7 +14,7 @@ library(dplyr)
 
 all_data = read.csv("all_data.csv")
 
-ui <- fluidPage(titlePanel("Food in New York"),
+ui <- fluidPage(titlePanel("Restaurants in New York"),
                 sidebarLayout(
                   sidebarPanel(    
                     selectInput("cuisine", label = h5("Choose a cuisine"),
