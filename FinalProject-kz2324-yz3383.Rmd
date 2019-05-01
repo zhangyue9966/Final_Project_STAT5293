@@ -1,5 +1,6 @@
 ---
-title: "Final Project"
+title: "GR5293 Final Project"
+author: Kaiyan Zheng(kz2324) Yue Zhang(yz3383)
 output:
   html_document: 
     code_folding: hide
@@ -333,18 +334,19 @@ In this project, we performs explorative data analysis on data scrapped through 
 
 ### Limitation
 
-1. The data could be accessed from Yelp API is limited. Most of our variables are discrete which restrict ways to explore. Thus, most of our plots are barcharts or mosaic plots as we have many discrete variables. 
+1. The data could be accessed from Yelp API is limited. Most of our variables are discrete which restrict ways to explore. Thus, most of our plots are bar charts or mosaic plots as we have many discrete variables. 
 
-2. This project mainly focus on data explory. However, there might be more business value could be explored except from what have been found.
+2. This project mainly focus on data explore. However, there might be more business value could be explored except from what have been found.
 
-### Futhre directions
+### Furthre directions
 
-1. It would be useful to seek more information like scrapping data directly from Yelp to get more continuous data like date in order to analyze the change of customers preference with different generation. Or getting reviews on Yelp to use wordcloud and n-gram clustering for finding more components which affect the rating of the restaurants.
+1. It would be useful to seek more information like scrapping data directly from Yelp to get more continuous data like date in order to analyze the change of customers preference with different generation. Or getting reviews on Yelp to use word cloud and n-gram clustering for finding more components which affect the rating of the restaurants.
 
-2. It is possible or even productive to make a detailed report for customoers and merchants. As the resultes we've got. Customers could find out where is the best place to find their favorite cuisine, where can find some cheap but high-quality food, etc. Merchants may find out what's are more important to the rating, what's the features of different cuisine. With such information, merchants could make better strategy.
+2. It is possible or even productive to make a detailed report for customers and merchants. As the results we've got. Customers could find out where is the best place to find their favorite cuisine, where can find some cheap but high-quality food, etc. Merchants may find out what's are more important to the rating, what's the features of different cuisine. With such information, merchants could make better strategy.
+
 
 ### lessons learned
 
 1. Though intuition is important, it should be discarded when we are exploring data. In the process of exploring data, we found that the facts presented are always not the same of what we might thought of before. For example, restaurants with low price may have high proportion of high rating. To explore those hidden fact, intuition might make a lot of confusion while we are supposed to spend more time finding the cause behind the data.
 
-2. Choosing the right graph to present data is important. As the most of our variables are catrgorical data, we are not able to choose ways like densinty plot to see the trend easily. The data could be meaningless if we choose the wrong plots. However, with the right plots, data becomes valuable.
+2. Choosing the right graph to present data is important. As the most of our variables are categorical data, we are not able to choose ways like density plot to see the trend easily. The data could be meaningless if we choose the wrong plots. However, with the right plots, data becomes valuable.
